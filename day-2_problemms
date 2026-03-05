@@ -1,0 +1,46 @@
+#242_VALID_ANAGRAMS
+
+  class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if(len(s)!=len(t)):
+            return False
+        freq=[0]*26
+        for i in range(len(s)):
+            freq[ord(s[i])-ord('a')]+=1
+            freq[ord(t[i])-ord('a')]-=1
+        for  c in freq:
+            if c!=0:
+                return False
+        return True
+
+
+  #125_VALID PALINDROME
+
+    class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        left=0
+        right=len(s)-1
+        while(left<right):
+            while(left<right and not s[left].isalnum()):
+                left+=1
+            while(left<right and not s[right].isalnum()):
+                right-=1
+            if(s[left].lower()!=s[right].lower()):
+                return False
+            left+=1
+
+#14_LONGEST_COMMON_PREFIX
+
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        strs.sort()
+        first=strs[0]
+        last=strs[-1]
+        result=[]
+        for i in range(len(first)):
+            if(i>len(last) or first[i]!=last[i]):
+                break
+            result.append(first[i])
+        return "".join(result)
+            right-=1
+        return True
