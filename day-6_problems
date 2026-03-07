@@ -1,0 +1,46 @@
+#509_FIBINACCI NUMBER
+class Solution(object):
+    def fib(self, n):
+        if(n==0 or n==1):
+            return n 
+        return self.fib(n-1)+self.fib(n-2)
+
+
+#231_POWER_OF_TWO
+#using iteration
+class Solution(object):
+    def isPowerOfTwo(self, n):
+        if(n<=0):
+            return False
+        while(n%2==0):
+            n=n//2
+        return n==1
+
+              
+   #using recursion
+class Solution(object):
+    def isPowerOfTwo(self, n):
+        if(n==1):
+            return True
+        if(n<=0 or n%2!=0):
+            return False
+        return self.isPowerOfTwo(n/2)
+
+
+#46_PERMUTATIONS
+              class Solution(object):
+    def permute(self, nums):
+       result=[]
+       self.backtrack(nums,result,[])
+       return result
+    def backtrack(self,nums,result,temp):
+        if(len(nums)==len(temp)):
+            result.append(list(temp))
+        for num in nums:
+            if num in temp:
+                continue
+            temp.append(num)
+            self.backtrack(nums,result,temp)
+            temp.pop()
+
+              
